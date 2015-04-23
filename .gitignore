@@ -1,0 +1,16 @@
+AUTHORS
+build/*
+build-stamp
+ChangeLog
+cover/
+covhtml/
+dist/
+doc/build
+*.DS_Store
+*.pyc
+pbr*.egg/
+setuptools*.egg/
+akanda.egg-info/
+pbr*.egg/
+.idea
+.tox

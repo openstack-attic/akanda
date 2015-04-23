@@ -1,0 +1,18 @@
+# build
+.venv
+*.egg*
+*.swp
+*.swo
+*.pyc
+.testrepository
+dist
+
+# Editors
+*~
+.*.swp
+.bak
+/.project
+.idea
+
+# Testenvironment
+.tox/

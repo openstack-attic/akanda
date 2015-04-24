@@ -69,6 +69,17 @@ a running :py:mod:`akanda.rug` via AMQP::
     current state of its worker processes and the state machines
     under their management.
 
+:program:`akanda-rug` also exposes an RPC API on the management network,
+which allows non-interactive `rug-ctl` commands to be issued via HTTP, e.g.,
+
+::
+
+    $ curl -X PUT -g6 "http://[fdca:3ba5:a17a:acda::1]:44250/poll/"
+    $ curl -X PUT -g6 "http://[fdca:3ba5:a17a:acda::1]:44250/workers/debug/"
+    $ curl -X PUT -g6 "http://[fdca:3ba5:a17a:acda::1]:44250/router/rebuild/<ID>"
+
+
+
 akanda-debug-router
 +++++++++++++++++++
 

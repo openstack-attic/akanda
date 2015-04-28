@@ -19,22 +19,21 @@ environments.
 The code for the Akanda project lives in several separate repositories to ease
 packaging and management:
 
-  * [Akanda Rug](https://github.com/akanda/akanda-rug) – Orchestration
+  * [Akanda Rug](https://github.com/stackforge/akanda-rug) – Orchestration
     service for managing the creation, configuration, and health of Akanda
     Software Routers in an OpenStack cloud.
 
-  * [Akanda Appliance](https://github.com/akanda/akanda-appliance) –
+  * [Akanda Appliance](https://github.com/stackforge/akanda-appliance) –
     Supporting software for the Akanda Software Router appliance, which is
     a Linux-based service VM that provides routing and L3+ services in
     a virtualized network environment. This includes a REST API for managing
     the appliance via the `Akanda Rug` orchestration service.
 
-  * [Akanda Neutron](https://github.com/akanda/akanda-neutron) – 
-    Ancillary subclasses of several OpenStack Neutron plugins and supporting code.
+  * [Akanda Appliance Builder] (https://github.com/stackforge/akanda-appliance-builder) -
+    Various methods to build an Akanda appliance.
 
-  * [Akanda Nova](https://github.com/dreamhost/akanda-nova) – Extensions to
-    OpenStack Nova supporting the creation and management of Akanda Software
-    Router appliances.
+  * [Akanda Neutron](https://github.com/stackforge/akanda-neutron) – 
+    Ancillary subclasses of several OpenStack Neutron plugins and supporting code.
 
 As such, *this* repository focuses on project overview and documentation.
 

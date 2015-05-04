@@ -1,14 +1,35 @@
+# Compiled files
+*.py[co]
+*.a
+*.o
+*.so
+
+# Sphinx
+_build
+doc/source/api/
+
+# Packages/installer info
+*.eggs
+*.egg
+*.egg-info
 dist
-.DS-Store
-AUTHORS
-ChangeLog
 build
+eggs
+parts
+var
+sdist
+develop-eggs
+.installed.cfg
+
+# Other
+*.DS_Store
+.testrepository
 .tox
 .venv
-*.egg*
-*.swp
-*.swo
-*.pyc
-.testrepository
-.idea/*
+.*.swp
+.coverage
+cover
+AUTHORS
+ChangeLog
+*.sqlite
 *~

@@ -26,6 +26,7 @@ Narrative Documentation
    appliance.rst
    contribute.rst
    operation.rst
+   reference.rst
 
 Licensing
 ---------

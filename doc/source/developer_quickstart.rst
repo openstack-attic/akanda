@@ -20,7 +20,7 @@ Preparation and prerequisites
 Deploying DevStack on your local workstation is not recommended. Instead,
 developers should use a dedicated virtual machine.  Currently, Ubuntu
 Trusty 14.04 is the tested and supported base operating system. Additionally,
-you'll need to have ``git`` installed::
+you'll need at least 4GB of RAM and to have ``git`` installed::
 
     sudo apt-get -y install git
 
@@ -60,7 +60,7 @@ By default, the Akanda plugin downloads a pre-built official Akanda image.  To
 build your own from source, enable ``BUILD_AKANDA_DEV_APPLIANCE`` and specify
 a repository and branch to build from::
 
-    cat >/opt/stack/devstack/local.conf <<END
+    cat >>/opt/stack/devstack/local.conf <<END
 
     BUILD_AKANDA_DEV_APPLIANCE=True
     AKANDA_APPLIANCE_REPO=http://github.com/stackforge/akanda-appliance.git

@@ -60,7 +60,7 @@ By default, the Akanda plugin downloads a pre-built official Akanda image.  To
 build your own from source, enable ``BUILD_AKANDA_DEV_APPLIANCE`` and specify
 a repository and branch to build from::
 
-    cat >/opt/stack/devstack/local.conf <<END
+    cat >>/opt/stack/devstack/local.conf <<END
 
     BUILD_AKANDA_DEV_APPLIANCE=True
     AKANDA_APPLIANCE_REPO=http://github.com/stackforge/akanda-appliance.git

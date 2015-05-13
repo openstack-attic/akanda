@@ -10,6 +10,105 @@ possible to build your own custom Service VM image (running additional
 services of your own on top of the routing and other default services provided
 by Akanda).
 
+.. _appliance_build:
+
+Building a Service VM image from source
+---------------------------------------
+
+The router code that runs within the appliance is hosted in the ``akanda-appliance``
+repository at ``https://github.com/stackforge/akanda-appliance``.  Additional tooling
+for actually building a VM image to run the appliance is stored in the ``akanda-appliance-builder``
+repository at ``https://github.com/stackforge/akanda-appliance-builder`` in the form of build
+elements to be used with ``diskimage-builder``.  The following instructions will walk through
+building the Debian-based appliance locally, publishing to Glance and configuring the RUG to
+use said image. These instructions are for building the image on an Ubuntu 14.04+ system.
+
+Install Prerequisites
++++++++++++++++++++++
+
+First, install ``diskimage-builder`` and required packages:
+
+::
+
+    sudo apt-get -y install debootstrap qemu-utils
+    sudo pip install "diskimage-builder<0.1.43"
+
+Next, clone the ``akanda-appliance-builder`` repository:
+
+::
+
+    git clone https://github.com/akanda-appliance-builder
+
+Build the image
++++++++++++++++
+
+Kick off an image build using diskimage-builder:
+
+::
+
+    cd akanda-appliance-builder
+    ELEMENTS_PATH=diskimage-builder/elements DIB_RELEASE=wheezy DIB_EXTLINUX=1 \
+    disk-image-create debian vm akanda -o akanda
+
+Publish the image
++++++++++++++++++
+
+The previous step should produce a qcow2 image called ``akanda.qcow`` that can be
+published into Glance for use by the system:
+
+::
+
+    # We assume you have the required OpenStack credentials set as an environment
+    # variables
+    glance image-create --name akanda --disk-format qcow2 --container-format bare \
+        --file akanda.qcow2
+    +------------------+--------------------------------------+
+    | Property         | Value                                |
+    +------------------+--------------------------------------+
+    | checksum         | cfc24b67e262719199c2c4dfccb6c808     |
+    | container_format | bare                                 |
+    | created_at       | 2015-05-13T21:27:02.000000           |
+    | deleted          | False                                |
+    | deleted_at       | None                                 |
+    | disk_format      | qcow2                                |
+    | id               | e2caf7fa-9b51-4f42-9fb9-8cfce96aad5a |
+    | is_public        | False                                |
+    | min_disk         | 0                                    |
+    | min_ram          | 0                                    |
+    | name             | akanda                               |
+    | owner            | df8eaa19c1d44365911902e738c2b10a     |
+    | protected        | False                                |
+    | size             | 450573824                            |
+    | status           | active                               |
+    | updated_at       | 2015-05-13T21:27:03.000000           |
+    | virtual_size     | None                                 |
+    +------------------+--------------------------------------+
+
+Configure the RUG
++++++++++++++++++
+
+Take the above image id and set the corresponding value in the RUG's config file, to instruct
+the service to use that image for software router instances it manages:
+
+::
+
+    vi /etc/akanda/rug.ini
+    ...
+    router_image_uuid=e2caf7fa-9b51-4f42-9fb9-8cfce96aad5a
+
+Making local changes to the appliance service
++++++++++++++++++++++++++++++++++++++++++++++
+
+By default, building an image in this way pulls the ``akanda-appliance`` code directly
+from the upstream tip of trunk.  If you'd like to make modifications to this code locally
+and build an image containing those changes, set DIB_REPOLOCATION_akanda and DIB_REPOREF_akanda
+in your enviornment accordingly during the image build, ie:
+
+::
+
+    export DIB_REPOLOCATION_akanda=~/src/akanda-appliance  # Location of the local repository checkout
+    export DIB_REPOREF_akanda=my-new-feature # The branch name or SHA-1 hash of the git ref to build from.
+
 .. _appliance_rest:
 
 REST API

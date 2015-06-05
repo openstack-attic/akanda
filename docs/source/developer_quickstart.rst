@@ -53,19 +53,31 @@ and enable the relevant services::
     ADMIN_PASSWORD=secret
     END
 
+You may wish to SSH into the appliance VMs for debugging purposes. The RUG will
+enable access for the 'akanda' user for a specified public key.  This may be
+specified by setting AKANDA_APPLIANCE_SSH_PUBLIC_KEY variable in your devstack
+config to point to an existing public key.  The default is
+$HOME/.ssh/id_rsa.pub.
+
 Building a Custom Service VM
 ++++++++++++++++++++++++++++
 
 By default, the Akanda plugin downloads a pre-built official Akanda image.  To
-build your own from source, enable ``BUILD_AKANDA_DEV_APPLIANCE`` and specify
+build your own from source, enable ``BUILD_AKANDA_APPLIANCE_IMAGE`` and specify
 a repository and branch to build from::
 
     cat >>/opt/stack/devstack/local.conf <<END
 
-    BUILD_AKANDA_DEV_APPLIANCE=True
+    BUILD_AKANDA_APPLIANCE_IMAGE=True
     AKANDA_APPLIANCE_REPO=http://github.com/stackforge/akanda-appliance.git
     AKANDA_APPLIANCE_BRANCH=master
     END
+
+To build the appliance using locally modified ``akanda-appliance`` code, you
+may point devstack at the local git checkout by setting the
+AKANDA_APPLIANCE_DIR variable.  Ensure that any changes you want included in
+the image build have been committed to the repository and it is checked out
+to the proper commit.
 
 Deploying
 +++++++++

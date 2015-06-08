@@ -1,0 +1,9 @@
+Verified+2: Jenkins
+Code-Review+2: mark mcclain <mark@mcclain.xyz>
+Workflow+1: mark mcclain <mark@mcclain.xyz>
+Code-Review+2: Ryan Petrello <ryan@ryanpetrello.com>
+Submitted-by: Jenkins
+Submitted-at: Mon, 08 Jun 2015 15:24:01 +0000
+Reviewed-on: https://review.openstack.org/188927
+Project: stackforge/akanda
+Branch: refs/heads/master

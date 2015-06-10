@@ -92,7 +92,48 @@ The supported states in the state machine are:
         transition is utilized to add routers back into management after issues
         are resolved and signal to :py:mod:`akanda-rug` that it should attempt
         to manage them again.
-    
+
+    :STATS: Reads traffic data from the router.
+
+    :CONFIG: Configures the VM and its services.
+
+    :EXIT: Processing stops.
+
+
+ACT(ion) Variables are:
+
+    :Create: Create router was requested.
+
+    :Read: Read router traffic stats.
+
+    :Update: Update router configuration.
+
+    :Delete: Delete router.
+
+    :Poll: Poll router alive status.
+
+    :rEbuild: Recreate a router from scratch.
+
+VM Variables are:
+
+    :Down: VM is known to be down.
+
+    :Booting: VM is booting.
+
+    :Up: VM is known to be up (pingable).
+
+    :Configured: VM is known to be configured.
+
+    :Restart Needed: VM needs to be rebooted.
+
+    :Hotplug Needed: VM needs to be replugged.
+
+    :Gone: The router definition has been removed from neutron.
+
+    :Error: The router has been rebooted too many times, or has had some
+            other error.
+
+.. graphviz:: state_machine.dot
 
 .. _health:
 

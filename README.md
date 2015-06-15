@@ -53,6 +53,11 @@ packaging and management:
     OpenStack Horizon supporting code.
 
 
+## Project Details
+
+Akanda is publicly managed through the [Akanda Launchpad project](https://launchpad.net/akanda)
+
+
 ## Code Review
 
 The code goes to get reviewed by collaborators and merged at

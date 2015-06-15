@@ -17,9 +17,9 @@ Building a Service VM image from source
 
 The router code that runs within the appliance is hosted in the ``akanda-appliance``
 repository at ``https://github.com/stackforge/akanda-appliance``.  Additional tooling
-for actually building a VM image to run the appliance is stored in the ``akanda-appliance-builder``
-repository at ``https://github.com/stackforge/akanda-appliance-builder`` in the form of build
-elements to be used with ``diskimage-builder``.  The following instructions will walk through
+for actually building a VM image to run the appliance is located in that repositoriy's
+``disk-image-builder`` sub-directory, in the form elements to be used with
+``diskimage-builder``.  The following instructions will walk through
 building the Debian-based appliance locally, publishing to Glance and configuring the RUG to
 use said image. These instructions are for building the image on an Ubuntu 14.04+ system.
 
@@ -37,7 +37,8 @@ Next, clone the ``akanda-appliance-builder`` repository:
 
 ::
 
-    git clone https://github.com/akanda-appliance-builder
+    git clone https://github.com/akanda-appliance
+
 
 Build the image
 +++++++++++++++
@@ -46,7 +47,7 @@ Kick off an image build using diskimage-builder:
 
 ::
 
-    cd akanda-appliance-builder
+    cd akanda-appliance
     ELEMENTS_PATH=diskimage-builder/elements DIB_RELEASE=wheezy DIB_EXTLINUX=1 \
     disk-image-create debian vm akanda -o akanda
 

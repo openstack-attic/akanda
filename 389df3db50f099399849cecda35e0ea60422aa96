@@ -1,0 +1,9 @@
+Verified+2: Jenkins
+Code-Review+2: Adam Gandelman <adamg@ubuntu.com>
+Code-Review+2: Ryan Petrello <ryan@ryanpetrello.com>
+Workflow+1: Ryan Petrello <ryan@ryanpetrello.com>
+Submitted-by: Jenkins
+Submitted-at: Wed, 24 Jun 2015 16:11:35 +0000
+Reviewed-on: https://review.openstack.org/194895
+Project: stackforge/akanda
+Branch: refs/heads/master

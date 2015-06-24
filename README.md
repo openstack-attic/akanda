@@ -43,9 +43,6 @@ packaging and management:
     a virtualized network environment. This includes a REST API for managing
     the appliance via the `Akanda Rug` orchestration service.
 
-  * [Akanda Appliance Builder] (https://github.com/stackforge/akanda-appliance-builder) -
-    Various methods to build an Akanda appliance.
-
   * [Akanda Neutron](https://github.com/stackforge/akanda-neutron) – 
     Ancillary subclasses of several OpenStack Neutron plugins and supporting code.
 

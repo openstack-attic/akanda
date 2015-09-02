@@ -21,7 +21,7 @@ Narrative Documentation
 .. toctree::
    :maxdepth: 2
 
-   architecture.rst
+   what_is_akanda.rst
    rug.rst
    appliance.rst
    contribute.rst

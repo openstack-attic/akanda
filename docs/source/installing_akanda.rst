@@ -1,26 +1,25 @@
-.. _developer_quickstart:
+Installing Akanda
+=================
 
-Akanda Developer Quickstart
-=====================================
 
-This guide provides guidance for new developers looking to get up and running
+Deploying Akanda using All-In-One Single Instance DevStack (Developer QuickStart)
+---------------------------------------------------------------------------------
+
+These steps provide guidance for new developers looking to get up and running
 with an Akanda development environment. The Akanda components may be easily
 deployed alongside OpenStack using DevStack. For more information about
-DevStack visit ``http://docs.openstack.org/developer/devstack/``.
+DevStack visit ``http://docs.openstack.org/developer/devstack/guides/single-machine.html``.
 
-
-.. _developer_quickstart_rest:
-
-Deploying Akanda using DevStack
--------------------------------
-
-Preparation and prerequisites
+Preparation and Prerequisites
 +++++++++++++++++++++++++++++
 
 Deploying DevStack on your local workstation is not recommended. Instead,
-developers should use a dedicated virtual machine.  Currently, Ubuntu
-Trusty 14.04 is the tested and supported base operating system. Additionally,
-you'll need at least 4GB of RAM and to have ``git`` installed::
+developers should use a dedicated virtual machine.  Using VirtualBox
+``https://www.virtualbox.org/wiki/Downloads`` for running locally or a public
+hosting provider such as DreamHost ``https://www.dreamhost.com/cloud/computing/``
+for running remotely is recommended. Currently, Ubuntu Trusty 14.04 is the
+tested and supported base operating system. Additionally, you'll need at least
+8GB of RAM and to have ``git`` installed::
 
     sudo apt-get -y install git
 
@@ -59,8 +58,51 @@ specified by setting AKANDA_APPLIANCE_SSH_PUBLIC_KEY variable in your devstack
 config to point to an existing public key.  The default is
 $HOME/.ssh/id_rsa.pub.
 
-Building a Custom Service VM
-++++++++++++++++++++++++++++
+Deploying
++++++++++
+
+Simply run DevStack and allow time for the deployment to complete::
+
+    cd /opt/stack/devstack
+    ./stack.sh
+
+After it has completed, you should have a ``akanda-rug`` process running
+alongside the other services and an Akanda router appliance booted as a Nova
+instance.
+
+Deploying Akanda using Multi-Node DevStack
+------------------------------------------
+
+These steps provide guidance for new developers looking to get up and running
+with an Akanda development environment. The Akanda components may be easily
+deployed alongside OpenStack using DevStack. For more information about
+DevStack visit ``http://docs.openstack.org/developer/devstack/guides/multinode-lab.html``.
+
+Controller Node
++++++++++++++++
+
+cat >/opt/stack/devstack/local.conf <<END
+[[local|localrc]]
+enable_plugin akanda-rug https://github.com/stackforge/akanda-rug
+enable_service q-svc q-agt ak-rug
+disable_service n-net
+
+HOST_IP=127.0.0.1
+LOGFILE=/opt/stack/devstack/devstack.log
+DATABASE_PASSWORD=secret
+RABBIT_PASSWORD=secret
+SERVICE_TOKEN=secret
+SERVICE_PASSWORD=secret
+ADMIN_PASSWORD=secret
+END
+
+Compute Node
+++++++++++++
+
+
+
+Building a Custom Service Instance
+----------------------------------
 
 By default, the Akanda plugin downloads a pre-built official Akanda image.  To
 build your own from source, enable ``BUILD_AKANDA_APPLIANCE_IMAGE`` and specify
@@ -78,15 +120,3 @@ may point devstack at the local git checkout by setting the
 AKANDA_APPLIANCE_DIR variable.  Ensure that any changes you want included in
 the image build have been committed to the repository and it is checked out
 to the proper commit.
-
-Deploying
-+++++++++
-
-Simply run DevStack and allow time for the deployment to complete::
-
-    cd /opt/stack/devstack
-    ./stack.sh
-
-After it has completed, you should have a ``akanda-rug`` process running
-alongside the other services and an Akanda router appliance booted as a Nova
-instance.

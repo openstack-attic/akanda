@@ -22,11 +22,11 @@ Narrative Documentation
    :maxdepth: 2
 
    what_is_akanda.rst
+   installing_akanda.rst
    rug.rst
    appliance.rst
    contribute.rst
    operation.rst
-   developer_quickstart.rst
    reference.rst
 
 Licensing

@@ -1,7 +1,7 @@
 .. _developer_quickstart:
 
 Akanda Developer Quickstart
-=====================================
+===========================
 
 This guide provides guidance for new developers looking to get up and running
 with an Akanda development environment. The Akanda components may be easily
@@ -40,7 +40,7 @@ and enable the relevant services::
 
     cat >/opt/stack/devstack/local.conf <<END
     [[local|localrc]]
-    enable_plugin akanda-rug https://github.com/stackforge/akanda-rug
+    enable_plugin akanda-rug https://git.openstack.org/openstack/akanda-rug
     enable_service q-svc q-agt ak-rug
     disable_service n-net
 
@@ -69,7 +69,7 @@ a repository and branch to build from::
     cat >>/opt/stack/devstack/local.conf <<END
 
     BUILD_AKANDA_APPLIANCE_IMAGE=True
-    AKANDA_APPLIANCE_REPO=http://github.com/stackforge/akanda-appliance.git
+    AKANDA_APPLIANCE_REPO=http://github.com/openstack/akanda-appliance.git
     AKANDA_APPLIANCE_BRANCH=master
     END
 

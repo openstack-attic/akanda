@@ -49,7 +49,7 @@ Akanda Building Blocks
 
 From an architectural perspective, Akanda is composed of a few sub-projects:
 
-    * | :ref:`akanda-rug <http://github.com/stackforge/akanda-rug>`
+    * | :ref:`akanda-rug <http://github.com/openstack/akanda-rug>`
 
       A service for managing the creation, configuration, and health of Akanda
       Service Instances in an OpenStack cloud.  The :py:mod:`akanda-rug` acts in
@@ -64,20 +64,20 @@ From an architectural perspective, Akanda is composed of a few sub-projects:
 
       .. image:: _static/rug.png
 
-    * | :ref:`akanda-appliance <http://github.com/stackforge/akanda-appliance>`
+    * | :ref:`akanda-appliance <http://github.com/openstack/akanda-appliance>`
 
       The software and services (including tools for building custom router
       images themselves) that run on the virtualized Linux router.  Includes
       drivers for L3-L7 services and a RESTful API that :py:mod:`akanda-rug`
       uses to orchestrate changes to router configuration.
 
-    * | `akanda-neutron <http://github.com/stackforge/akanda-neutron>`_
+    * | `akanda-neutron <http://github.com/openstack/akanda-neutron>`_
 
       Addon API extensions and plugins for OpenStack Neutron which enable
       functionality and integration with the Akanda project, notably Akanda
       router appliance interaction.
 
-    * | `akanda-horizon <http://github.com/stackforge/akanda-neutron>`_
+    * | `akanda-horizon <http://github.com/openstack/akanda-horizon>`_
 
       OpenStack Horizon rug panels providing management of the appliance
 

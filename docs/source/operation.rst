@@ -8,7 +8,7 @@ Installation
 
 You can install from GitHub directly with ``pip``::
 
-    $ pip install -e git://github.com/stackforge/akanda-rug.git@stable/kilo#egg=akanda-rug
+    $ pip install -e git://github.com/openstack/akanda-rug.git@stable/kilo#egg=akanda-rug
 
 After installing :py:mod:`akanda.rug`, it can be invoked as::
 

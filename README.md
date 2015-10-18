@@ -33,20 +33,20 @@ packaging and management:
 
   * *this* repository focuses on project overview and documentation
 
-  * [Akanda Rug](https://github.com/stackforge/akanda-rug) – Orchestration
+  * [Akanda Rug](https://github.com/openstack/akanda-rug) – Orchestration
     service for managing the creation, configuration, and health of Akanda
     Software Routers in an OpenStack cloud.
 
-  * [Akanda Appliance](https://github.com/stackforge/akanda-appliance) –
+  * [Akanda Appliance](https://github.com/openstack/akanda-appliance) –
     Supporting software for the Akanda Software Router appliance, which is
     a Linux-based service VM that provides routing and L3+ services in
     a virtualized network environment. This includes a REST API for managing
     the appliance via the `Akanda Rug` orchestration service.
 
-  * [Akanda Neutron](https://github.com/stackforge/akanda-neutron) – 
+  * [Akanda Neutron](https://github.com/openstack/akanda-neutron) – 
     Ancillary subclasses of several OpenStack Neutron plugins and supporting code.
 
-  * [Akanda Horizon](https://github.com/stackforge/akanda-horizon) -
+  * [Akanda Horizon](https://github.com/openstack/akanda-horizon) -
     OpenStack Horizon supporting code.
 
 

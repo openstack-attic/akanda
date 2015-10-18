@@ -16,7 +16,7 @@ Building a Service VM image from source
 ---------------------------------------
 
 The router code that runs within the appliance is hosted in the ``akanda-appliance``
-repository at ``https://github.com/stackforge/akanda-appliance``.  Additional tooling
+repository at ``https://github.com/openstack/akanda-appliance``.  Additional tooling
 for actually building a VM image to run the appliance is located in that repository's
 ``disk-image-builder`` sub-directory, in the form elements to be used with
 ``diskimage-builder``.  The following instructions will walk through
@@ -37,7 +37,7 @@ Next, clone the ``akanda-appliance-builder`` repository:
 
 ::
 
-    git clone https://github.com/stackforge/akanda-appliance
+    git clone https://github.com/openstack/akanda-appliance
 
 
 Build the image
